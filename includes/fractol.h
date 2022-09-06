@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:41:59 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/09/01 18:03:15 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/09/01 19:55:49 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
+void	print_pixels(void *mlx, t_data *img);
 #endif

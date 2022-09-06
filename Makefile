@@ -12,7 +12,7 @@ PATH_LIBFT		= ./Libft
 MINILIBX_PATH	=	./minilibx-linux/
 MINILIBX		=	$(MINILIBX_PATH)libmlx.a
 
-SRCS			= $(addprefix $(PATH_SRCS), main.c)
+SRCS			= $(addprefix $(PATH_SRCS), main.c print_pixels.c)
 LFLAGS			= -L $(PATH_LIBFT) -lft
 OBJS 			= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
 INCLUDES		= -I $(PATH_INCLUDES)
