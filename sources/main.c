@@ -6,21 +6,21 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:39:10 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/09/06 21:17:38 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/09/27 15:14:18 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
+// void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+// {
+// 	char	*dst;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-}
+// 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+// 	*(unsigned int*)dst = color;
+// }
 
-void	errors(int argc, char *argv[])
+void	input_errors(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
@@ -44,16 +44,21 @@ void	errors(int argc, char *argv[])
 
 int	main(int argc, char *argv[])
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
+	t_vars  d;
+	t_data 	mlx_img;
 
-	errors(argc, argv);
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1000, 700, "Fractol");
-	img.img = mlx_new_image(mlx, 1000, 700);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	my_mlx_pixel_put(&img, 120, 120, 0x00FF0000);
-	mlx_loop(mlx);
+	d.mlx = mlx_init();
+	if (!d.mlx)
+		return (ft_putstr_fd("MLX_ERROR\n", 1));
+	d.win = mlx_new_window(d.mlx, WIDTH, HEIGHT, "fractol");
+	if (!d.win)
+	{
+		free(d.win);
+		return (ft_putstr_fd("MLX_ERROR\n", 1));
+	}
+	mlx_img.img = mlx_new_image(d.mlx, WIDTH, HEIGHT);
+	mlx_img.addr = mlx_get_data_addr(mlx_img.img, &mlx_img.bpp, &mlx_img.line_len, &mlx_img.endian);
+	mlx_loop(d.mlx);
+	mlx_destroy_window(d.mlx, d.win);
+	free(d.mlx);
 }
