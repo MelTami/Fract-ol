@@ -23,12 +23,12 @@ all:	$(NAME)
 $(NAME): $(OBJS)
 	make -C $(PATH_LIBFT)
 	make -C $(MINILIBX_PATH)
-	cc $(CFLAGS) $(INCLUDES) $(OBJS) $(LFLAGS) $(MINILIBX) $(MLXFLAGS) -o $(NAME)
+	clang $(CFLAGS) $(INCLUDES) $(OBJS) $(LFLAGS) $(MINILIBX) $(MLXFLAGS) -o $(NAME)
 
 
 $(PATH_OBJS)%.o: $(PATH_SRCS)%.c
 	mkdir -p $(PATH_OBJS)
-	cc $(CFLAGS) $(INCLUDES) -I mlx.h -O3 -c $< -o $@
+	clang $(CFLAGS) $(INCLUDES) -I mlx.h -O3 -c $< -o $@
 
 clean:
 		$(RM) $(PATH_OBJS)
