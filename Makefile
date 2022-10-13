@@ -12,11 +12,11 @@ PATH_LIBFT		= ./Libft
 MINILIBX_PATH	=	./minilibx-linux/
 MINILIBX		=	$(MINILIBX_PATH)libmlx.a
 
-SRCS			= $(addprefix $(PATH_SRCS), main.c)
+SRCS			= $(addprefix $(PATH_SRCS), main.c), test.c
 LFLAGS			= -L $(PATH_LIBFT) -lft
 OBJS 			= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
 INCLUDES		= -I $(PATH_INCLUDES)
-MLXFLAGS		= -L. -lXext -L. -lX11
+MLXFLAGS		= -L$(MINILIBX_PATH) -lXext -lX11 -lmlx_Linux -lmlx
 
 all:	$(NAME)
 
