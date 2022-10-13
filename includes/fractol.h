@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mvavasso <mvavasso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:41:59 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/09/16 18:33:43 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/13 14:56:42 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 
 # include "../Libft/libft.h"
 # include <mlx.h>
+# include <math.h>
+# include <stdbool.h>
 
+# define WIDTH 900
+# define HEIGHT 900
+# define MAX_ITERATIONS 100
 
 typedef struct	s_data {
 	void	*img;
@@ -28,6 +33,10 @@ typedef struct	s_data {
 typedef struct	s_vars {
 	void	*mlx;
 	void	*win;
+	double	min_r;
+	double	max_r;
+	double	min_i;
+	double	max_i;
 }				t_vars;
 
 
