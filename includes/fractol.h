@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:41:59 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/13 14:56:42 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:17:51 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct	s_vars {
 	double	max_r;
 	double	min_i;
 	double	max_i;
+	double	kr;
+	double	ki;
 }				t_vars;
 
 

@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:39:10 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/13 15:04:28 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:30:26 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,32 @@
 // 		}
 // 	}
 // }
+
+void	julia(t_vars *f, int x, int y, double zr, double zi)
+{
+	int		n;
+	double	tmp;
+	int		is_in_set;
+
+	n = -1;
+	is_in_set = 1;
+	while (++n < MAX_ITERATIONS)
+	{
+		if ((zr * zr + zi * zi) > 4.0)
+		{
+			is_in_set = 0;
+			break ;
+		}
+		tmp = 2 * zr * zi + f->ki;
+		zr = zr * zr - zi * zi + f->kr;
+		zi = tmp;
+	}
+	if (is_in_set == 1)
+		mlx_pixel_put(f->mlx, f->win, x, y, 0x000000);
+	else
+		mlx_pixel_put(f->mlx, f->win, x, y, 0xFFFFFF);
+}
+
 void	mandelbrot(t_vars *f, int x, int y, double cr, double ci)
 {
 	int	n;
@@ -67,12 +93,12 @@ void	mandelbrot(t_vars *f, int x, int y, double cr, double ci)
 		zi = tmp;
 	}
 	if (is_in_set == 1)
-		mlx_pixel_put(f->mlx, f->win, x, y, 0xFF0000);
+		mlx_pixel_put(f->mlx, f->win, x, y, 0x000000);
 	else
-		mlx_pixel_put(f->mlx, f->win, x, y, 0x0000FF);
+		mlx_pixel_put(f->mlx, f->win, x, y, 0xFFFFFF);
 }
 
-void	draw_fractal(t_vars *f)
+void	draw_fractal(t_vars *f, char *argv[])
 {
 	int	x;
 	int	y;
@@ -87,25 +113,32 @@ void	draw_fractal(t_vars *f)
 		{
 			pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
 			pi = f->min_i + (double)y * (f->max_i - f->min_i) / HEIGHT;
-			mandelbrot(f, x, y, pr, pi);
+			if(ft_strncmp(argv[1], "Mandelbrot", sizeof(argv[1])) == 0)
+				mandelbrot(f, x, y, pr, pi);
+			else if(ft_strncmp(argv[1], "Julia", sizeof(argv[1])) == 0)
+				julia(f, x, y, pr, pi);
 		}
 	}
 }
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
 	t_vars  f;
 	// t_data 	mlx_img;
 
+	if(argc != 2)
+		ft_putstr_fd("Invalid syntax!\n", 1);
 	f.mlx = mlx_init();
 	f.min_r = -2.0;
 	f.max_r = 1.0;
 	f.min_i = -1.5;
 	f.max_i = f.min_i + (f.max_r - f.min_r) * HEIGHT / WIDTH;
+	f.kr = -0.766667;
+	f.ki = -0.090000;
 	f.win = mlx_new_window(f.mlx, WIDTH, HEIGHT, "Fract'ol test");
 	// mlx_img.img = mlx_new_image(f.mlx, WIDTH, HEIGHT);
 	// mlx_img.addr = mlx_get_data_addr(mlx_img.img, &mlx_img.bits_per_pixel, &mlx_img.line_length, &mlx_img.endian);
-	draw_fractal(&f);
+	draw_fractal(&f, argv);
 	mlx_loop(f.mlx);
 	// mlx_destroy_image(f.mlx, mlx_img.img);
 	// mlx_destroy_display(f.mlx);
