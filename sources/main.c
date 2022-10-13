@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:39:10 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/13 22:25:52 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/13 22:51:26 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 // 	{
 // 		if (ft_strncmp(argv[1], "Julia", sizeof(argv[1])) != 0 && ft_strncmp(argv[1], "Mandelbrot", sizeof(argv[1])) != 0)
 // 		{
-// 			ft_putstr_fd("You should use Julia or Mandelbrot set!\n", 1);
+// 			ft_putstr_fd("You should use Julia or Mandelbrot set! And if you use the Julia set, remember to sent the constant numbers\n", 1);
 // 			exit (1);
 // 		}
 // 		else
@@ -113,9 +113,9 @@ void	draw_fractal(t_vars *f, char *argv[])
 		{
 			pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
 			pi = f->min_i + (double)y * (f->max_i - f->min_i) / HEIGHT;
-			if(ft_strncmp(argv[1], "Mandelbrot", sizeof(argv[1])) == 0)
+			if((ft_strncmp(argv[1], "Mandelbrot", sizeof(argv[1])) == 0) || (ft_strncmp(argv[1], "mandelbrot", sizeof(argv[1])) == 0))
 				mandelbrot(f, x, y, pr, pi);
-			else if(ft_strncmp(argv[1], "Julia", sizeof(argv[1])) == 0)
+			else if((ft_strncmp(argv[1], "Julia", sizeof(argv[1])) == 0) || (ft_strncmp(argv[1], "julia", sizeof(argv[1])) == 0))
 				julia(f, x, y, pr, pi);
 		}
 	}
@@ -126,15 +126,15 @@ int	main(int argc, *argv[])
 	t_vars  f;
 	// t_data 	mlx_img;
 
-	if(argc != 2)
+	if(argc < 2 || argc > 4)
 		ft_putstr_fd("Invalid syntax!\n", 1);
 	f.mlx = mlx_init();
 	f.min_r = -2.0;
 	f.max_r = 1.0;
 	f.min_i = -1.5;
 	f.max_i = f.min_i + (f.max_r - f.min_r) * HEIGHT / WIDTH;
-	f.kr = -0.766667;
-	f.ki = -0.090000;
+	f.kr = ft_atoi(argv[2]);
+	f.ki = ft_atoi(argv[3]);
 	f.win = mlx_new_window(f.mlx, WIDTH, HEIGHT, "Fract'ol test");
 	// mlx_img.img = mlx_new_image(f.mlx, WIDTH, HEIGHT);
 	// mlx_img.addr = mlx_get_data_addr(mlx_img.img, &mlx_img.bits_per_pixel, &mlx_img.line_length, &mlx_img.endian);
