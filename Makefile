@@ -6,7 +6,7 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 23:00:10 by mvavasso          #+#    #+#              #
-#    Updated: 2022/10/13 23:00:10 by mvavasso         ###   ########.fr        #
+#    Updated: 2022/10/15 04:42:24 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,15 @@ PATH_LIBFT		= ./Libft
 MINILIBX_PATH	=	./minilibx-linux/
 MINILIBX		=	$(MINILIBX_PATH)libmlx.a
 
-SRCS			= $(addprefix $(PATH_SRCS), main.c)
+SRCS			= $(addprefix $(PATH_SRCS), \
+					main.c \
+					ft_name.c \
+					Mandelbrot.c \
+					Julia.c \
+					mousehooks.c \
+					keyhooks.c \
+					set_color.c \
+					ft_atod.c)
 LFLAGS			= -L $(PATH_LIBFT) -lft
 OBJS 			= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
 INCLUDES		= -I $(PATH_INCLUDES)

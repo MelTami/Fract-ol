@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:41:59 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/13 22:27:35 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/15 05:27:19 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
+	int		bpp;
+	int		ll;
 	int		endian;
 }				t_data;
 
@@ -41,8 +41,33 @@ typedef struct	s_vars {
 	double	max_i;
 	double	kr;
 	double	ki;
+	int		name;
+	int		color;
+	int		x;
+	int		y;
+	t_data	img;
 }				t_vars;
 
+typedef struct	s_aux{
+	double	middle_r;
+	double	middle_i;
+}				t_aux;
 
-void	print_pixels(void *mlx, t_data *img);
+void	my_mlx_pixel_put(t_vars *f, int x, int y, int color);
+int		julia(t_vars *f, double zr, double zi);
+int		mandelbrot(double cr, double ci);
+void	ft_arrows(int keycode, t_vars *f);
+int		handle_keypress(int keycode, t_vars *vars);
+int		exit_hook(t_vars *f);
+double	ft_name(char *str);
+void	set_vars(t_vars *f, char **argv);
+void	set_color(t_vars *f, int n);
+void	color_1(t_vars *f, int n);
+void	color_2(t_vars *f, int n);
+void	color_3(t_vars *f, int n);
+void	color_4(t_vars *f, int n);
+void	color_5(t_vars *f, int n);
+double	ft_atof(char *str);
+int		mouse_hook(int keycode, int x, int y, t_vars *f);
+
 #endif
