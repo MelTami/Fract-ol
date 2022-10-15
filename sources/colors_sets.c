@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 15:28:53 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/15 15:29:38 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/15 19:48:42 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,20 +124,20 @@ void	color_5(t_vars *f, int n)
 	if (n == MAX_ITERATIONS)
 		color = 0x00000000;
 	else if (n % 8 == 7)
-		color = 0x00480dff;
+		color = 0x00cbbbfc;
 	else if (n % 8 == 6)
-		color = 0x006736ff;
+		color = 0x00bca7fc;
 	else if (n % 8 == 5)
-		color = 0x007a4fff;
+		color = 0x00af95fc;
 	else if (n % 8 == 4)
-		color = 0x008c68fc;
+		color = 0x009e7ffa;
 	else if (n % 8 == 3)
-		color = 0x009d7efc;
+		color = 0x008c66fa;
 	else if (n % 8 == 2)
-		color = 0x00ab91fa;
+		color = 0x00774af7;
 	else if (n % 8 == 1)
-		color = 0x00b8a2fc;
+		color = 0x00622dfa;
 	else if (n % 8 == 0)
-		color = 0x00bfacfa;
+		color = 0x004c0ffc;
 	my_mlx_pixel_put(f, f->x, f->y, color);
 }

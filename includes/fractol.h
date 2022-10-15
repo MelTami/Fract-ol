@@ -6,14 +6,14 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:41:59 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/15 18:40:21 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/15 19:41:04 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "../Libft/libft.h"
+# include "../libft/libft.h"
 # include <mlx.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
