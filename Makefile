@@ -6,7 +6,7 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 23:00:10 by mvavasso          #+#    #+#              #
-#    Updated: 2022/10/15 15:53:15 by mvavasso         ###   ########.fr        #
+#    Updated: 2022/10/15 19:35:14 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,6 @@ PATH_INCLUDES	= ./includes/
 PATH_OBJS		= ./objects/
 PATH_SRCS		= ./sources/
 PATH_LIBFT		= ./Libft
-
-MINILIBX_PATH	=	./minilibx-linux/
-MINILIBX		=	$(MINILIBX_PATH)libmlx.a
 
 SRCS			= $(addprefix $(PATH_SRCS), \
 					main.c \
@@ -38,15 +35,13 @@ SRCS			= $(addprefix $(PATH_SRCS), \
 LFLAGS			= -L $(PATH_LIBFT) -lft
 OBJS 			= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
 INCLUDES		= -I $(PATH_INCLUDES)
-MLXFLAGS		= -L$(MINILIBX_PATH) -lXext -lX11 -lmlx_Linux -lmlx
+MLXFLAGS		= -lmlx -lXext -lX11 -lm -lz
 
 all:	$(NAME)
 
 $(NAME): $(OBJS)
 	make -C $(PATH_LIBFT)
-	make -C $(MINILIBX_PATH)
-	clang $(CFLAGS) $(INCLUDES) $(OBJS) $(LFLAGS) $(MINILIBX) $(MLXFLAGS) -o $(NAME)
-
+	clang $(CFLAGS) $(OBJS) $(LFLAGS) $(MLXFLAGS) -o $(NAME)
 
 $(PATH_OBJS)%.o: $(PATH_SRCS)%.c
 	mkdir -p $(PATH_OBJS)
