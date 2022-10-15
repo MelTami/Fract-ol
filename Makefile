@@ -6,7 +6,7 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 23:00:10 by mvavasso          #+#    #+#              #
-#    Updated: 2022/10/15 19:35:14 by mvavasso         ###   ########.fr        #
+#    Updated: 2022/10/15 19:38:02 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RM				= rm -rf
 PATH_INCLUDES	= ./includes/
 PATH_OBJS		= ./objects/
 PATH_SRCS		= ./sources/
-PATH_LIBFT		= ./Libft
+PATH_LIBFT		= ./libft
 
 SRCS			= $(addprefix $(PATH_SRCS), \
 					main.c \
