@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:39:10 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/15 16:44:09 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/15 18:21:16 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	msg(int val)
 		ft_putstr_fd("Your sintax is invalid!\n", 1);
 		ft_putstr_fd("Too much arguments!\n", 1);
 	}
+	else if (val == 3)
+	{
+		ft_putstr_fd("Your sintax is invalid!\n", 1);
+		ft_putstr_fd("You should add [kr] and [ki], -2.0 < k > 2.0!\n", 1);
+	}
 }
 
 int	validation(int argc, char *argv[])
@@ -52,6 +57,12 @@ int	validation(int argc, char *argv[])
 	{
 		msg(1);
 		return (1);
+	}
+	if ((ft_strncmp(argv[1], "Julia", sizeof(argv[1])) == 0) && \
+			(argv[2] == NULL || argv[3] == NULL))
+	{
+		msg(3);
+		return(1);
 	}
 	return (0);
 }

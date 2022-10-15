@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:41:59 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/15 16:36:25 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/15 18:40:21 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 
 # define WIDTH 900
 # define HEIGHT 900
-# define MAX_ITERATIONS 80
+# define MAX_ITERATIONS 300
 
-typedef struct	s_data {
+typedef struct s_data {
 	void	*img;
 	char	*addr;
 	int		bpp;
@@ -32,7 +32,7 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
-typedef struct	s_vars {
+typedef struct s_vars {
 	void	*mlx;
 	void	*win;
 	double	min_r;
@@ -48,7 +48,7 @@ typedef struct	s_vars {
 	t_data	img;
 }				t_vars;
 
-typedef struct	s_aux{
+typedef struct s_aux{
 	double	middle_r;
 	double	middle_i;
 }				t_aux;
