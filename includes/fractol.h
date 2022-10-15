@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:41:59 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/15 05:27:19 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/15 16:36:25 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,10 @@ void	color_4(t_vars *f, int n);
 void	color_5(t_vars *f, int n);
 double	ft_atof(char *str);
 int		mouse_hook(int keycode, int x, int y, t_vars *f);
+int		render(t_vars *f);
+void	msg(int val);
+int		validation(int argc, char *argv[]);
+int		init(t_vars *f);
+void	clean_win(t_vars *f);
 
 #endif

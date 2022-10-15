@@ -6,7 +6,7 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 23:00:10 by mvavasso          #+#    #+#              #
-#    Updated: 2022/10/15 04:42:24 by mvavasso         ###   ########.fr        #
+#    Updated: 2022/10/15 15:53:15 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,9 @@ SRCS			= $(addprefix $(PATH_SRCS), \
 					mousehooks.c \
 					keyhooks.c \
 					set_color.c \
-					ft_atod.c)
+					ft_atof.c \
+					render.c \
+					colors_sets.c)
 LFLAGS			= -L $(PATH_LIBFT) -lft
 OBJS 			= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
 INCLUDES		= -I $(PATH_INCLUDES)
