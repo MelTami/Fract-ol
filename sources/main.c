@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:39:10 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/15 02:16:41 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/15 02:33:49 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,9 @@ void	draw_fractal(t_vars *f, char *argv[])
 	int	y;
 	double	pr;
 	double	pi;
-
+	
+	f->kr = -0.766667;
+	f->ki = -0.090000;
 	y = -1;
 	while (++y < HEIGHT)
 	{
@@ -131,7 +133,14 @@ int	keypress(int keycode, t_vars *vars)
 	return (0);
 }
 
-int	main(int argc, *argv[])
+int	exit_hook(t_vars *f)
+{
+	mlx_destroy_window(f->mlx, f->win);
+	f->win = NULL;
+	return (0);
+}
+
+int	main(int argc, char *argv[])
 {
 	t_vars  f;
 	// t_data 	mlx_img;
@@ -143,13 +152,12 @@ int	main(int argc, *argv[])
 	f.max_r = 1.0;
 	f.min_i = -1.5;
 	f.max_i = f.min_i + (f.max_r - f.min_r) * HEIGHT / WIDTH;
-	f.kr = ft_atoi(argv[2]);
-	f.ki = ft_atoi(argv[3]);
 	f.win = mlx_new_window(f.mlx, WIDTH, HEIGHT, "Fract'ol test");
 	// mlx_img.img = mlx_new_image(f.mlx, WIDTH, HEIGHT);
 	// mlx_img.addr = mlx_get_data_addr(mlx_img.img, &mlx_img.bits_per_pixel, &mlx_img.line_length, &mlx_img.endian);
 	draw_fractal(&f, argv);
-	mlx_hook(f.win, 2, 1L<<0, keypress, &vars);
+	mlx_hook(f.win, 2, 1L<<0, keypress, &f);
+	mlx_hook(f.win, 17, 0, exit_hook, &f);
 	mlx_loop(f.mlx);
 	// mlx_destroy_image(f.mlx, mlx_img.img);
 	// mlx_destroy_display(f.mlx);
