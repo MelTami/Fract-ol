@@ -121,6 +121,16 @@ void	draw_fractal(t_vars *f, char *argv[])
 	}
 }
 
+int	keypress(int keycode, t_vars *vars)
+{
+	if (keycode == XK_Escape || keycode == XK_q)
+	{
+		mlx_destroy_window(vars->mlx, vars->win);
+		vars->win = NULL;
+	}
+	return (0);
+}
+
 int	main(int argc, *argv[])
 {
 	t_vars  f;
@@ -139,6 +149,7 @@ int	main(int argc, *argv[])
 	// mlx_img.img = mlx_new_image(f.mlx, WIDTH, HEIGHT);
 	// mlx_img.addr = mlx_get_data_addr(mlx_img.img, &mlx_img.bits_per_pixel, &mlx_img.line_length, &mlx_img.endian);
 	draw_fractal(&f, argv);
+	mlx_hook(f.win, 2, 1L<<0, keypress, &vars);
 	mlx_loop(f.mlx);
 	// mlx_destroy_image(f.mlx, mlx_img.img);
 	// mlx_destroy_display(f.mlx);

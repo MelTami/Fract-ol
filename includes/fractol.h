@@ -15,12 +15,14 @@
 
 # include "../Libft/libft.h"
 # include <mlx.h>
-# include <math.h>
-# include <stdbool.h>
+# include <X11/keysym.h>
+# include <X11/X.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 # define WIDTH 900
 # define HEIGHT 900
-# define MAX_ITERATIONS 100
+# define MAX_ITERATIONS 80
 
 typedef struct	s_data {
 	void	*img;
