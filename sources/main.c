@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:39:10 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/15 18:21:16 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/16 18:23:47 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ int	validation(int argc, char *argv[])
 		msg(0);
 		return (1);
 	}
-	if (argc > 4)
+	if ((argc > 4) || ((argv[2] != NULL) \
+		&& (ft_strncmp(argv[1], "Mandelbrot", sizeof(argv[1])) != 0)))
 	{
 		msg(2);
 		return (1);
@@ -62,7 +63,7 @@ int	validation(int argc, char *argv[])
 			(argv[2] == NULL || argv[3] == NULL))
 	{
 		msg(3);
-		return(1);
+		return (1);
 	}
 	return (0);
 }

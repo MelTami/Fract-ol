@@ -6,13 +6,13 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 20:16:37 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/05/15 21:53:57 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/16 18:07:59 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	whitespace(char w)
+int	whitespace(char w)
 {
 	if (w == ' ' || (w <= 13 && w >= 9))
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 22:04:59 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/08/09 22:10:30 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/16 18:07:59 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_convertint(int nb)
 	return (len);
 }
 
-static size_t	len(int n)
+size_t	len(int n)
 {
 	size_t	length;
 
@@ -42,7 +42,7 @@ static size_t	len(int n)
 	return (length);
 }
 
-static char	*value(int n)
+char	*value(int n)
 {
 	char	*max;
 	char	*ret;

@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 04:26:47 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/08/09 22:07:43 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/16 18:07:59 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_convertu(unsigned int nb)
 {
-	static int	sum;
+	int	sum;
 
 	sum = 0;
 	if (nb / 10 > 0)
