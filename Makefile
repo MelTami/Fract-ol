@@ -6,7 +6,7 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 23:00:10 by mvavasso          #+#    #+#              #
-#    Updated: 2022/10/15 19:38:02 by mvavasso         ###   ########.fr        #
+#    Updated: 2022/10/16 17:57:48 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,20 +40,23 @@ MLXFLAGS		= -lmlx -lXext -lX11 -lm -lz
 all:	$(NAME)
 
 $(NAME): $(OBJS)
-	make -C $(PATH_LIBFT)
-	clang $(CFLAGS) $(OBJS) $(LFLAGS) $(MLXFLAGS) -o $(NAME)
+	@ make -C $(PATH_LIBFT)
+	@ clang $(CFLAGS) $(OBJS) $(LFLAGS) $(MLXFLAGS) -o $(NAME)
+	@ echo -e '\033[0;32m[SUCCESS]\033[0m Compilation done!'
 
 $(PATH_OBJS)%.o: $(PATH_SRCS)%.c
-	mkdir -p $(PATH_OBJS)
-	clang $(CFLAGS) $(INCLUDES) -I mlx.h -O3 -c $< -o $@
-
+	@ mkdir -p $(PATH_OBJS)
+	@ clang $(CFLAGS) $(INCLUDES) -I mlx.h -O3 -c $< -o $@
+	
 clean:
-		$(RM) $(PATH_OBJS)
-		make clean -C $(PATH_LIBFT)
+	@ $(RM) $(PATH_OBJS)
+	@ make clean -C $(PATH_LIBFT)
+	@ echo -e '\033[0;33mObjects removed\033[0m'
 
 fclean:	clean
-		$(RM) $(NAME)
-		make fclean -C $(PATH_LIBFT)
+	@ $(RM) $(NAME)
+	@ make fclean -C $(PATH_LIBFT)
+	@ echo -e '\033[0;33mEverything is clean\033[0m'
 
 re:		fclean all
 
