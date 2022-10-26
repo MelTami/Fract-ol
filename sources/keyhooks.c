@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 02:36:17 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/15 15:27:55 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/27 00:51:31 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 int	handle_keypress(int keycode, t_vars *vars)
 {
 	if (keycode == XK_Escape)
-	{
-		mlx_destroy_window(vars->mlx, vars->win);
-		vars->win = NULL;
-	}
+		exit_hook(vars);
 	if (keycode == 32)
 		vars->color++;
 	ft_arrows(keycode, vars);

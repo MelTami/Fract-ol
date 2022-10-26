@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 00:14:54 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/27 00:18:54 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/27 00:33:49 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	msg(void)
 	ft_putstr_fd("or\n ", 1);
 	ft_putstr_fd("./fractol Julia [kr] [ki], -2.0 < k > 2.0\n", 1);
 	ft_putstr_fd("-----Some numbers for Julia that are cool--!\n", 1);
-	ft_putstr_fd("-0.076667 -0.90000\n", 1);
+	ft_putstr_fd("-0.076676 -0.90000 | -0.4 0.6 | 0.285 0\n", 1);
+	ft_putstr_fd("−0.7269 0.1889 | −0.70176 −0.384 | −0.7269 0.1889\n", 1);
 }
 
 int	validation(int argc, char *argv[], int n)
