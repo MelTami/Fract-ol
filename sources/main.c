@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:39:10 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/27 00:58:20 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/27 01:29:22 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,16 @@ int	init(t_vars *f)
 	return (0);
 }
 
+int	exit_program(t_vars *f)
+{
+	mlx_destroy_window(f->mlx, f->win);
+	mlx_loop_end(f->mlx);
+	mlx_destroy_image(f->mlx, f->img.img);
+	mlx_destroy_display(f->mlx);
+	free(f->mlx);
+	exit(0);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_vars	f;
@@ -39,12 +49,12 @@ int	main(int argc, char *argv[])
 									&f.img.ll, &f.img.endian);
 	mlx_loop_hook(f.mlx, &render, &f);
 	mlx_hook(f.win, KeyPress, KeyPressMask, handle_keypress, &f);
-	mlx_hook(f.win, 17, 0, exit_hook, &f);
+	mlx_hook(f.win, DestroyNotify, NoEventMask, exit_program, &f);
 	mlx_mouse_hook(f.win, mouse_hook, &f);
 	mlx_loop(f.mlx);
+	mlx_loop_end(f.mlx);
 	mlx_destroy_image(f.mlx, f.img.img);
 	mlx_destroy_display(f.mlx);
-	mlx_loop_end(f.mlx);
 	free(f.mlx);
 	return (0);
 }

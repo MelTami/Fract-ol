@@ -6,18 +6,11 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 02:36:20 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/27 00:58:08 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/27 01:23:02 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-int	exit_hook(t_vars *f)
-{
-	mlx_destroy_window(f->mlx, f->win);
-	f->win = NULL;
-	return (0);
-}
 
 void	zoom(t_vars *f, double zoom)
 {
