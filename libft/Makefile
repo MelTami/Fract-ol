@@ -6,7 +6,7 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/04 19:32:35 by mvavasso          #+#    #+#              #
-#    Updated: 2022/10/15 04:39:27 by mvavasso         ###   ########.fr        #
+#    Updated: 2022/10/27 01:33:09 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,19 +27,21 @@ SRCS	= ft_bzero.c ft_toupper.c ft_tolower.c ft_substr.c ft_isdigit.c ft_isascii.
 HEADER	= libft.h
 OBJS	= $(SRCS:.c=.o)
 
-all:	$(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	@ $(AR) $(NAME) $(OBJS)
 
 $(OBJS): $(SRCS)
-	$(CC) $(CFLAG) -c $(SRCS)
+	@ $(CC) $(CFLAG) -c $(SRCS)
+	@ echo -e '\033[0;32m[SUCCESS]\033[0m Libft compilation done!'
 
 clean:
-		$(RM) $(OBJS)
+	@ $(RM) $(OBJS)
 
 fclean:	clean
-		$(RM) $(NAME)
+	@ $(RM) $(NAME)
+
 
 re:		fclean all
 
