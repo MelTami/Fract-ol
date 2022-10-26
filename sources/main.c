@@ -6,67 +6,11 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 20:39:10 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/10/16 18:23:47 by mvavasso         ###   ########.fr       */
+/*   Updated: 2022/10/26 23:49:09 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-void	msg(int val)
-{
-	if (val == 1)
-	{
-		ft_putstr_fd("Your sintax is invalid!\n", 1);
-		ft_putstr_fd("-----------------------\n", 1);
-		ft_putstr_fd("Your sintax should follow these steps,\n", 1);
-		ft_putstr_fd("./fractol [Mandelbrot or Julia]\n", 1);
-		ft_putstr_fd("if you pick Julia, ", 1);
-		ft_putstr_fd("add [kr] and [ki], -2.0 < k > 2.0\n", 1);
-	}
-	else if (val == 0)
-	{
-		ft_putstr_fd("Your sintax is invalid!\n", 1);
-		ft_putstr_fd("Too few arguments!\n", 1);
-	}
-	else if (val == 2)
-	{
-		ft_putstr_fd("Your sintax is invalid!\n", 1);
-		ft_putstr_fd("Too much arguments!\n", 1);
-	}
-	else if (val == 3)
-	{
-		ft_putstr_fd("Your sintax is invalid!\n", 1);
-		ft_putstr_fd("You should add [kr] and [ki], -2.0 < k > 2.0!\n", 1);
-	}
-}
-
-int	validation(int argc, char *argv[])
-{
-	if (argc < 2)
-	{
-		msg(0);
-		return (1);
-	}
-	if ((argc > 4) || ((argv[2] != NULL) \
-		&& (ft_strncmp(argv[1], "Mandelbrot", sizeof(argv[1])) != 0)))
-	{
-		msg(2);
-		return (1);
-	}
-	if ((ft_strncmp(argv[1], "Julia", sizeof(argv[1])) != 0) \
-			&& (ft_strncmp(argv[1], "Mandelbrot", sizeof(argv[1])) != 0))
-	{
-		msg(1);
-		return (1);
-	}
-	if ((ft_strncmp(argv[1], "Julia", sizeof(argv[1])) == 0) && \
-			(argv[2] == NULL || argv[3] == NULL))
-	{
-		msg(3);
-		return (1);
-	}
-	return (0);
-}
 
 int	init(t_vars *f)
 {
@@ -86,7 +30,7 @@ int	main(int argc, char *argv[])
 {
 	t_vars	f;
 
-	if (validation(argc, argv) == 1)
+	if (validation(argc, argv, 0) == 1)
 		return (0);
 	init(&f);
 	f.name = ft_name(argv[1]);

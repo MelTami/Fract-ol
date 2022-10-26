@@ -6,7 +6,7 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 23:00:10 by mvavasso          #+#    #+#              #
-#    Updated: 2022/10/16 17:57:48 by mvavasso         ###   ########.fr        #
+#    Updated: 2022/10/26 22:43:01 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRCS			= $(addprefix $(PATH_SRCS), \
 					set_color.c \
 					ft_atof.c \
 					render.c \
-					colors_sets.c)
+					colors_sets.c \
+					validation.c)
 LFLAGS			= -L $(PATH_LIBFT) -lft
 OBJS 			= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
 INCLUDES		= -I $(PATH_INCLUDES)
