@@ -29,13 +29,13 @@ int	validation(int argc, char *argv[], int n)
 {
 	if (argc < 2 || argc > 4)
 		n = 1;
-	else if ((ft_strncmp(argv[1], "Mandelbrot", sizeof(argv[1])) != 0) \
-			&& (ft_strncmp(argv[1], "Julia", sizeof(argv[1])) != 0))
+	else if ((ft_strncmp(argv[1], "Mandelbrot", ft_strlen(argv[1]) + 1)) != 0) \
+			&& (ft_strncmp(argv[1], "Julia", ft_strlen(argv[1]) + 1)) != 0))
 		n = 1;
-	else if ((ft_strncmp(argv[1], "Julia", sizeof(argv[1])) == 0) && \
+	else if ((ft_strncmp(argv[1], "Julia", ft_strlen(argv[1]) + 1)) == 0) && \
 			(param_error(argv, 0) == 1))
 		n = 1;
-	else if ((ft_strncmp(argv[1], "Mandelbrot", sizeof(argv[1])) == 0) && \
+	else if ((ft_strncmp(argv[1], "Mandelbrot", ft_strlen(argv[1]) + 1)) == 0) && \
 			argv[2] != NULL)
 		n = 1;
 	if (n == 1)
